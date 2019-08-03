@@ -73,7 +73,8 @@ if __name__ == "__main__":
 
     # EXAMPLE 2:
     # fn(x) = 2x + x^3
-    fn = lambda x: Dual(2.0, C).mul(x).add(x.mul(x))
+    # fn = lambda x: (x.mul(x.mul(x))).add(Dual(2.0, C).mul(x))
+    fn = lambda x: x.mul(x).mul(x).add(x).add(x)
     # dfn(x) = 2 + 3x^2
     dfn = grad(C, fn)
 
